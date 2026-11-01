@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/*
+ * Palet SIPENA — diambil dari logo:
+ * - hijau tua (kubah): #17573B
+ * - hijau segar (buku/teal): #2A9D6F
+ * - emas (bintang/huruf A): #D9A61E
+ */
+@theme {
+    --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary-50: #eff8f3;
+    --color-primary-100: #d7ecdf;
+    --color-primary-200: #b0d9c2;
+    --color-primary-300: #82c1a0;
+    --color-primary-400: #4fa978;
+    --color-primary-500: #2a9d6f;
+    --color-primary-600: #1f7d58;
+    --color-primary-700: #17573b;
+    --color-primary-800: #123f2c;
+    --color-primary-900: #0c2a1e;
+
+    --color-gold-50: #fdf9ec;
+    --color-gold-100: #faf0cc;
+    --color-gold-200: #f4dd94;
+    --color-gold-300: #ecc555;
+    --color-gold-400: #e0b327;
+    --color-gold-500: #d9a61e;
+    --color-gold-600: #b78312;
+    --color-gold-700: #8f610e;
+    --color-gold-800: #6d4a10;
+    --color-gold-900: #5a3d11;
+
+    --color-cream: #f7f9f4;
+}
+
+/* Semua angka <input> tanpa spinner bawaan browser */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Kolom pilihan penilaian (Penilaian Harian) */
+select.evaluasi {
+    @apply w-full rounded-lg border px-2.5 py-1.5 text-xs outline-none transition-colors;
+}
+select.evaluasi[data-choice=''],
+select.evaluasi:not([data-choice]) {
+    @apply border-slate-200 bg-white text-slate-500;
+}
+select.evaluasi[data-choice='hadir'] {
+    @apply border-primary-500 bg-primary-50 text-primary-800 font-semibold;
+}
+select.evaluasi[data-choice='munfarid'] {
+    @apply border-primary-300 bg-primary-50/50 text-primary-700;
+}
+select.evaluasi[data-choice='haid'],
+select.evaluasi[data-choice='tidak_hadir'],
+select.evaluasi[data-choice='tidak_sekolah'] {
+    @apply border-slate-300 bg-slate-50 text-slate-600;
+}
+select.evaluasi[data-choice='tidak_sholat'] {
+    @apply border-red-300 bg-red-50 text-red-700 font-semibold;
+}
+select.evaluasi[data-choice='bawa'],
+select.evaluasi[data-choice='ikut'] {
+    @apply border-primary-500 bg-primary-50 text-primary-800 font-semibold;
+}
+select.evaluasi[data-choice='tidak_bawa'],
+select.evaluasi[data-choice='tidak'] {
+    @apply border-red-300 bg-red-50 text-red-700;
+}
+
+/* Titik rekap mingguan */
+.rekap-dot {
+    @apply h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-inset ring-black/5;
+}
+.dot-none { background-color: #d7e0d7; }
+.dot-hadir { background-color: #17573b; }
+.dot-munfarid { background-color: #2a9d6f; }
+.dot-haid { background-color: #cbd5e1; }
+.dot-tidak_hadir { background-color: #94a3b8; }
+.dot-tidak_sekolah { background-color: #e2e8f0; }
+.dot-tidak_sholat { background-color: #dc2626; }
+.dot-bawa { background-color: #059669; }
+.dot-tidak_bawa { background-color: #ef4444; }
+.dot-ikut { background-color: #d9a61e; }
+.dot-tidak { background-color: #94a3b8; }
